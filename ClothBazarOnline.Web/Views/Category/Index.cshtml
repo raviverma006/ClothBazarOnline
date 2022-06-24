@@ -1,0 +1,17 @@
+﻿@model List<ClothBazarOnline.Entities.OCategory>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@using (Html.BeginForm("",""))
+{
+ foreach (var cat in Model)
+ {
+     <h1>@cat.Name</h1>
+
+ }
+
+
+}

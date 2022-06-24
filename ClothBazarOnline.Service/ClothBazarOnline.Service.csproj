@@ -4,14 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{75505555-0FD7-40DF-BCE7-EDA48E448F3F}</ProjectGuid>
+    <ProjectGuid>{D8472937-8F98-4991-A512-0637913DE99A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ClothBazarOnline.Database</RootNamespace>
-    <AssemblyName>ClothBazarOnline.Database</AssemblyName>
+    <RootNamespace>ClothBazarOnline.Service</RootNamespace>
+    <AssemblyName>ClothBazarOnline.Service</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -48,35 +50,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CBContext.cs" />
-    <Compile Include="Migrations\202206230658389_Initial.cs" />
-    <Compile Include="Migrations\202206230658389_Initial.Designer.cs">
-      <DependentUpon>202206230658389_Initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202206231006293_secondtime.cs" />
-    <Compile Include="Migrations\202206231006293_secondtime.Designer.cs">
-      <DependentUpon>202206231006293_secondtime.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="CategoriesService.cs" />
+    <Compile Include="ProductsService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
+    <ProjectReference Include="..\ClothBazarOnline.Database\ClothBazarOnline.Database.csproj">
+      <Project>{75505555-0fd7-40df-bce7-eda48e448f3f}</Project>
+      <Name>ClothBazarOnline.Database</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ClothBazarOnline.Entities\ClothBazarOnline.Entities.csproj">
       <Project>{6629FAAE-F6FA-4765-9E56-4BD46C920A50}</Project>
       <Name>ClothBazarOnline.Entities</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202206230658389_Initial.resx">
-      <DependentUpon>202206230658389_Initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202206231006293_secondtime.resx">
-      <DependentUpon>202206231006293_secondtime.cs</DependentUpon>
-    </EmbeddedResource>
+    <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

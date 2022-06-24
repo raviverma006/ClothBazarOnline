@@ -1,0 +1,24 @@
+﻿@model ClothBazarOnline.Entities.OCategory
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create Category</h2>
+
+@using (Html.BeginForm("Create", "Category"))
+{
+
+    @Html.LabelFor(Model => Model.Name, new { @class = "" })
+    @Html.TextBoxFor(Model => Model.Name, new { @class = "form-control" })
+
+    <br />
+
+
+    @Html.LabelFor(Model => Model.Description, new { @class = "" })
+    @Html.TextBoxFor(Model => Model.Description, new { @class = "form-control" })
+
+    <br />
+    
+    <input type="submit" value="Save" class="btn btn-success" />
+
+}

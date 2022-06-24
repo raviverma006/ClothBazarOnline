@@ -1,0 +1,87 @@
+﻿@model IEnumerable<ClothBazarOnline.Entities.OProduct>
+@{
+    ViewBag.Title = "ProductTable";
+}
+
+<h2>ProductTable</h2>
+
+@using (Html.BeginForm())
+{
+
+   
+
+<div>
+    <input name="Serach" id="txtSearch" /> <input type="submit" id="btnSubmit" value="Search" class="btn btn-primary"  />
+    @Html.ActionLink("Create Product", "CreateProduct", "Product", new { @class = "btn btn-primary" })
+
+</div>
+
+<table id="tbl"  class="table table-responsive">
+    <thead>
+        <tr>
+            <th>Product</th>
+            <th>Category</th>
+            <th>price</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model)
+        {
+            <tr>
+                <td>@item.Name  </td>
+                <td>@item.OCategories</td>
+                <td>@item.Price</td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", "Product", new { Id = item.ID }, new { @class = "btn btn-success" })
+                    @Html.ActionLink("Delete", "Delete", "Product", new { Id = item.ID }, new { @class = "btn btn-success" })
+                </td>
+            </tr>
+
+
+        }
+
+
+    </tbody>
+
+    
+</table>
+
+
+}
+
+@section Scripts
+{
+    <script>
+        $(document).ready(function () {
+
+            $('#btnSubmit').click(function () {
+
+                $.ajax({
+                    url: "../../Product/ProductTable",
+                    type: "Get",
+                    dataType: "Json",
+                    data: { Search : $('#txtSearch').val() },
+                    success: function (data)
+                    {
+                        alert("Successs");
+                    },
+                    error: function ()
+                    {
+                        alert("Fail");
+                    }
+                    
+                    
+
+                })
+
+
+            });
+
+        });
+
+
+    </script>
+    
+    
+    }
